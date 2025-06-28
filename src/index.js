@@ -2,7 +2,6 @@ console.time();
 
 const {app, BrowserWindow, screen, protocol} = require('electron');
 const path = require('path');
-// const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer');
 
 const createWindow = () => {
   // Get the primary display's size
@@ -17,7 +16,6 @@ const createWindow = () => {
     frame: true,
     transparent: true,
     resizable: true,
-    
   });
 
   // and load the index.html of the app.
@@ -27,7 +25,6 @@ const createWindow = () => {
 
   mainWindow.on("ready-to-show", console.timeEnd);
   mainWindow.on("ready-to-show", mainWindow.show);
-  mainWindow.webContents.openDevTools();
 };
 
 app.whenReady().then(() => {
@@ -38,10 +35,6 @@ app.whenReady().then(() => {
       createWindow()
     }
   })
-
-  // installExtension(REACT_DEVELOPER_TOOLS)
-  //       .then((ext) => console.log(`Added Extension:  ${ext.name}`))
-  //       .catch((err) => console.log('An error occurred: ', err));
 })
 
 app.on('window-all-closed', () => {
